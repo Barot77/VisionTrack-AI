@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionTrack AI | Database</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --accent: #38bdf8;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #0f172a;
+            color: white;
+            padding: 40px;
+        }
+
+        .db-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #334155;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            width: 300px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th { background: rgba(37, 99, 235, 0.2); color: var(--accent); }
+
+        .action-btn {
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            border: none;
+            margin-right: 5px;
+        }
+
+        .edit { background: var(--primary); color: white; }
+        .delete { background: var(--danger); color: white; }
+
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="db-header">
+        <h2>Student Biometric Database</h2>
+        <input type="text" class="search-bar" placeholder="Search by Name or ID...">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Enrolled Date</th>
+                <th>Face Samples</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CSE-001</td>
+                <td>Gauri Barot</td>
+                <td>2026-03-01</td>
+                <td><span class="badge">120 Samples</span></td>
+                <td>
+                    <button class="action-btn edit">Edit</button>
+                    <button class="action-btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>CSE-045</td>
+                <td>Rahul Sharma</td>
+                <td>2026-03-05</td>
+                <td><span class="badge">115 Samples</span></td>
+                <td>
+                    <button class="action-btn edit">Edit</button>
+                    <button class="action-btn delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>CSE-089</td>
+                <td>Priya Patel</td>
+                <td>2026-03-10</td>
+                <td><span class="badge">128 Samples</span></td>
+                <td>
+                    <button class="action-btn edit">Edit</button>
+                    <button class="action-btn delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 20px; opacity: 0.6; font-size: 13px;">
+        * Database connected via SQLite3 / MySQL connector.
+    </div>
+
+</body>
+</html>

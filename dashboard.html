@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionTrack AI | Attendance Logs</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --success: #22c55e;
+            --accent: #38bdf8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #0f172a;
+            color: white;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        h2 { color: var(--accent); margin-bottom: 30px; }
+
+        /* Modern Table Design */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th { background: rgba(56, 189, 248, 0.2); color: var(--accent); text-transform: uppercase; font-size: 12px; }
+
+        .status-present {
+            color: var(--success);
+            background: rgba(34, 197, 94, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .confidence-bar {
+            width: 100px;
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h3>VisionTrack <span style="color:var(--accent)">AI</span></h3>
+        <p style="font-size: 14px; opacity: 0.6;">Admin Panel v1.0</p>
+        <hr style="opacity: 0.1; margin: 20px 0;">
+        <div style="color: var(--accent); cursor: pointer;">📅 Daily Logs</div>
+        <div style="margin-top: 15px; opacity: 0.7; cursor: pointer;">👥 Student Registry</div>
+        <div style="margin-top: 15px; opacity: 0.7; cursor: pointer;">⚙️ AI Settings</div>
+    </div>
+
+    <div class="main-content">
+        <h2>Real-Time Attendance Feed</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Time In</th>
+                    <th>Confidence</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for student in students %}
+    <tr>
+        <td>CSE-2026-XX</td> <td>{{ student[0] }}</td> <td>{{ student[1] }}</td> <td>
+            <div class="progress-bar">95%</div> </td>
+        <td><span class="status-verified">Verified</span></td>
+    </tr>
+    {% endfor %}
+</tbody>
+        </table>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(56, 189, 248, 0.05); border-radius: 10px; border: 1px solid var(--accent);">
+            <strong>Developer Note:</strong> This log is synced with the OpenCV-Python backend via Flask/Django API.
+        </div>
+    </div>
+
+</body>
+</html>

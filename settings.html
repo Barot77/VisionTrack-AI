@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionTrack AI | Settings</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --accent: #38bdf8;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #0f172a;
+            color: white;
+            padding: 40px;
+        }
+
+        .settings-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .settings-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .setting-row:last-child { border: none; }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #334155;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        input:checked + .slider { background-color: var(--accent); }
+
+        select, input[type="range"] {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .save-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="settings-container">
+        <h2 style="color: var(--accent);">System Configuration</h2>
+        
+        <div class="settings-section">
+            <h3>AI Model Settings</h3>
+            <div class="setting-row">
+                <span>Face Detection Algorithm</span>
+                <select>
+                    <option>Haar Cascade (Fast)</option>
+                    <option selected>MTCNN (Accurate)</option>
+                    <option>DeepFace (Advanced)</option>
+                </select>
+            </div>
+            <div class="setting-row">
+                <span>Recognition Confidence Threshold</span>
+                <input type="range" min="0" max="100" value="85">
+                <span>85%</span>
+            </div>
+            <div class="setting-row">
+                <span>Live Liveness Detection (Anti-Spoofing)</span>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Hardware & Storage</h3>
+            <div class="setting-row">
+                <span>Primary Camera Input</span>
+                <select>
+                    <option>Integrated Webcam</option>
+                    <option>External USB Camera</option>
+                    <option>IP Camera (RTSP)</option>
+                </select>
+            </div>
+            <div class="setting-row">
+                <span>Auto-Export Logs to CSV</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <button class="save-btn">Apply Configuration</button>
+    </div>
+
+</body>
+</html>
